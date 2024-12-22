@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CircularProgressComponent } from '../../ds/atoms/circular-progress/circular-progress.component';
+import { CircularProgressComponent } from '../../ds/components/atoms/circular-progress/circular-progress.component';
 import { GetTareaUseCases } from '../../../domain/usercase/get-tarea-use-case';
 import { Observable } from 'rxjs';
 import { Tarea } from '../../../domain/models/Tarea/tarea';
