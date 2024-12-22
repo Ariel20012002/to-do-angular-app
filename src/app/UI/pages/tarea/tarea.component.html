@@ -1,0 +1,21 @@
+<div class="tarjeta">
+  <h1 class="mt-3">Lista de Tareas</h1>
+  <ng-container *ngIf="tareas$ | async as tareas">
+    <table class="table table-bordered mt-3">
+      <thead>
+        <th>Nombre</th>
+        <th>Comentario</th>
+        <th>Estado de la Tarea</th>
+        <th>Estado</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tarea of tareas">
+          <td>{{tarea.nombre}}</td>
+          <td>{{tarea.comentario}}</td>
+          <td>{{tarea.estTarea}}</td>
+          <td>{{tarea.estado}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+</div>
