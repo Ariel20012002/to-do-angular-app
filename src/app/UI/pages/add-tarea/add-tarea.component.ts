@@ -28,7 +28,6 @@ export class AddTareaComponent implements OnDestroy {
   }
 
   onFormSubmit() {
-
     this.addTareaSubscribtion = this._addTareaUseCase.AddTarea(this.model)
     .subscribe({
       next: (response) => {
@@ -40,7 +39,4 @@ export class AddTareaComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.addTareaSubscribtion?.unsubscribe();
   }
-
-
-
 }
