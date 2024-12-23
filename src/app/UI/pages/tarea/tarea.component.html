@@ -27,7 +27,7 @@
           <td>{{tarea.estTarea}}</td>
           <td>{{tarea.estado}}</td>
           <td>
-            <a class="btn btn-secondary">Editar</a>
+            <a class="btn btn-secondary" [routerLink]="['/edit-tarea', tarea.id]">Editar</a>
           </td>
         </tr>
       </tbody>
