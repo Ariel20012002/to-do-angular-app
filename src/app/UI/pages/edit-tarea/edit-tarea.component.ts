@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { GetTareaUseCases } from '../../../domain/usercase/get-tarea-use-case';
 import { EditTarea } from '../../../domain/models/Tarea/edit-tarea.model';
 import { EditTareaUseCases } from '../../../domain/usercase/edit-tarea-use-case';
+import { RemoveTareaUseCases } from '../../../domain/usercase/remove-tarea-use-case';
 
 @Component({
   selector: 'app-edit-tarea',
@@ -24,7 +25,8 @@ export class EditTareaComponent implements OnInit, OnDestroy{
   tarea?: Tarea;
 
   constructor(private route: ActivatedRoute, private router: Router,
-    private _getTareaUseCases: GetTareaUseCases, private _editTareaUseCase: EditTareaUseCases) {}
+    private _getTareaUseCases: GetTareaUseCases, private _editTareaUseCase: EditTareaUseCases,
+    private _removeTareaUseCase: RemoveTareaUseCases) {}
 
     ngOnInit(): void {
       this.paramsSubscription = this.route.paramMap.subscribe({
@@ -57,6 +59,17 @@ export class EditTareaComponent implements OnInit, OnDestroy{
           this.router.navigateByUrl('/');
         }
       });
+    }
+  }
+
+  onRemove(): void {
+    if(this.id) {
+      this._removeTareaUseCase.RemoveTarea(this.id)
+      .subscribe({
+        next: (response) => {
+          this.router.navigateByUrl('/');
+        }
+      })
     }
   }
 

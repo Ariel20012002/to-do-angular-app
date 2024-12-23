@@ -6,10 +6,12 @@ import { TareaGateway } from '../../../domain/models/Tarea/gateway/tarea-gateway
 import { environment } from '../../../../environments/environment';
 import { AddTarea } from '../../../domain/models/Tarea/add-tarea.model';
 import { EditTarea } from '../../../domain/models/Tarea/edit-tarea.model';
+import { RemoveTarea } from '../../../domain/models/Tarea/remove-tarea.model';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class TareaApiService extends TareaGateway{
 
   private _url = environment.apiBaseUrl;
@@ -34,4 +36,7 @@ export class TareaApiService extends TareaGateway{
     return this.http.put<Tarea>(`${this._url}/api/Tarea/actualizar-tarea/${id}`, _updateTarea);
   }
 
+  RemoveTarea(id: String): Observable<RemoveTarea> {
+    return this.http.delete<Tarea>(`${this._url}/api/Tarea/remover-tarea/${id}`);
+  }
 }
