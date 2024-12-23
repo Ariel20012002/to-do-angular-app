@@ -11,7 +11,7 @@ export class GetTareaUseCases {
 
   constructor( private _tareaGateway: TareaGateway) {}
 
-  getTareaById (id: String) : Observable<Tarea> {
+  getTareaById(id: String) : Observable<Tarea> {
     return this._tareaGateway.getTareaById(id);
   }
 
